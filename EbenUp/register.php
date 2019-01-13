@@ -23,13 +23,13 @@
 				$results['message']['pseudo'] = "Pseudo invalide";
 			}
 			else{
-
-				$requete=$db->prepare('SELECT id From user where email = :email');
-				$requete->execute([':email' => $email]);
+				
+				$requete=$db->prepare('SELECT pseudo From user where pseudo = :pseudo');
+				$requete->execute([':pseudo' => $pseudo]);
 				$row = $requete->fetch();
 				if($row){
 					$results['error'] = true;
-					$results['message']['pseudo'] = "Email existe deja";
+					$results['message']['pseudo'] = "Pseudo existe deja";
 				}
 
 			}
@@ -41,12 +41,12 @@
 				$results['message']['email'] = "Email invalide";
 			}
 			else{
-				$requete=$db->prepare('SELECT id From user where pseudo = :pseudo');
-				$requete->execute([':pseudo' => $pseudo]);
+				$requete=$db->prepare('SELECT email From user where email = :email');
+				$requete->execute([':email' => $email]);
 				$row = $requete->fetch();
 				if($row){
 					$results['error'] = true;
-					$results['message']['pseudo'] = "Pseudo existe deja";
+					$results['message']['pseudo'] = "Email existe deja";
 				}
 			}
 
