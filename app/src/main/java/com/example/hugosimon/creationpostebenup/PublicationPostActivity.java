@@ -34,6 +34,12 @@ import java.io.InputStream;
 public class PublicationPostActivity extends AppCompatActivity {
 
     /**
+     *  identifiant de l'utilisateur courant
+     */
+
+    private int user_id;
+
+    /**
      * variable qui va stocker la photo selectionnee par l'utilisateur
      */
 
@@ -194,6 +200,8 @@ public class PublicationPostActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Intent mIntent = getIntent();
+        int user_id = mIntent.getIntExtra("user_id", 0);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_publicationpost);
         this.init();

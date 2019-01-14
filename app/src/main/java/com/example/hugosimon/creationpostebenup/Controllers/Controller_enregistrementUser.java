@@ -2,8 +2,6 @@ package com.example.hugosimon.creationpostebenup.Controllers;
 
 import com.example.hugosimon.creationpostebenup.Model.User;
 
-import java.io.File;
-
 public final class Controller_enregistrementUser {
     private static Controller_enregistrementUser instance = null;
     private User user;
@@ -19,7 +17,7 @@ public final class Controller_enregistrementUser {
             return Controller_enregistrementUser.instance;
     }
 
-    public void createUser(String pseudo, String description, File pp, int age, boolean sexe, int taille){
+    /*public void createUser(String pseudo, String description, File pp, int age, boolean sexe, int taille){
         user = new User(pseudo, description, pp, age, sexe, taille);
-    }
+    }*/
 }

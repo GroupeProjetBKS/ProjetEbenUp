@@ -3,19 +3,18 @@ package com.example.hugosimon.creationpostebenup.Model;
 import java.io.File;
 
 public class User {
+    int user_id;
+    String prenom;
+    String adresse;
+    String email;
     String pseudo;
-    String description;
     File pp = null;
-    int age;
-    boolean sexe;
-    int taille;
 
-    public User(String pse, String desc, File pp, int age, boolean sexe, int taille){
+    public User(int uid, String pse, String name, String adr, String mail){
         this.pseudo = pse;
-        this.description = desc;
-        this.pp = pp;
-        this.age = age;
-        this.sexe = sexe;
-        this.taille = taille;
+        this.prenom = name;
+        this.user_id = uid;
+        this.adresse = adr;
+        this.email = mail;
     }
 }

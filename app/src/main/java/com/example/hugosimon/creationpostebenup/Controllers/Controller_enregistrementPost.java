@@ -31,7 +31,7 @@ public class Controller_enregistrementPost {
      *  id de l'utilisateur connecte pour faire le lien entre celui ci et le post
      */
 
-    private int user_id;
+    public static int user_id;
 
     /**
      *  Constructeur, comme il n'a aucune particularites on met appelle juste le superconstructeur
@@ -65,6 +65,9 @@ public class Controller_enregistrementPost {
         return false;
     }
 
+    public void setUser_id(int uidd){
+        this.user_id = uidd;
+    }
     /**
      *  Methode qui va regarder si une instance du controleur est declaree et en declarer une si ce n'est pas le cas
      *  elle sert principalement de construteur
@@ -97,12 +100,11 @@ public class Controller_enregistrementPost {
 
     /**
      *  methode qui va envoier a acces distant les informations a sauvegarder
-     *  @param userid   identifiant de l'utilisateur courant
+     *  @param user_id identifiant de l'utilisateur
      *  @param textData donnees a enregistrer
      */
 
-    public void publierPost(int userid, String[] textData){
-
+    public void publierPost(int user_id, String[] textData){
         accesDistant.envoi("publierPost",this.convertToJSONArray(user_id, textData));
     }
 

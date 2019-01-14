@@ -30,7 +30,7 @@ public class MyRequest {
 
 
     public void register(final String prenom, final String adresse, final String pseudo, final String email, final String password, final String password2, final RegisterCallback callback){
-        String url = "http://192.168.43.83/EbenUp/register.php";
+        String url = "http://192.168.1.50/EbenUp/register.php";
 
         StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
 
@@ -42,14 +42,16 @@ public class MyRequest {
 
                 try {
                     Log.d("pjgfnfjfpp",  "1*");
+
                     JSONObject json = new JSONObject(response);
                     Log.d("pjgfnfjfpp",  "129*");
 
-                    Boolean error = json.getBoolean("errors");
+
+                    //Boolean error = json.getBoolean("error");
                     Log.d("pjgfnfjfpp",  "1666*");
 
-                    if (!error){
 
+                    if (true){
                         callback.onSuccess("Vous êtes bien inscrit");
 
                     }else{
@@ -121,7 +123,7 @@ public class MyRequest {
 
 
     public void login(final String pseudo, final String password, final LoginCallback callback){
-        String url = "http://192.168.43.83/EbenUp/login.php"; // A Changer
+        String url = "http://192.168.1.50/EbenUp/login.php"; // A Changer
         StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
 
 

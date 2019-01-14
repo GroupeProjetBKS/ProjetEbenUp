@@ -10,8 +10,14 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
+import com.example.hugosimon.creationpostebenup.Controllers.Controller_enregistrementPost;
+import com.example.hugosimon.creationpostebenup.Model.AccesDistant;
 import com.example.hugosimon.creationpostebenup.MyRequest.MyRequest;
 
+import org.json.JSONArray;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 
@@ -47,7 +53,7 @@ public class RegisterActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String prenom = til_prenom.getEditText().getText().toString().trim();
                 String adresse = til_adresse.getEditText().getText().toString().trim();
-                String pseudo = til_pseudo.getEditText().getText().toString().trim();
+                final String pseudo = til_pseudo.getEditText().getText().toString().trim();
                 String email = til_email.getEditText().getText().toString().trim();
                 String password = til_password.getEditText().getText().toString().trim();
                 String password2 = til_password2.getEditText().getText().toString().trim();
@@ -58,7 +64,13 @@ public class RegisterActivity extends AppCompatActivity {
                         @Override
                         public void onSuccess(String message) {
                             Log.d("pjgfnfjfpp",  "1234567*");
+                            AccesDistant acd = new AccesDistant();
+                            List liste = new ArrayList();
+                            liste.add(pseudo);
+                            acd.envoi("chercherUtilisateur",new JSONArray(liste));
+                            int uid = Controller_enregistrementPost.getInstance().user_id;
                             Intent intent = new Intent (getApplicationContext(), com.example.hugosimon.creationpostebenup.PublicationPostActivity.class);
+                            intent.putExtra("user_id", uid);
                             startActivity(intent);
 
                         }

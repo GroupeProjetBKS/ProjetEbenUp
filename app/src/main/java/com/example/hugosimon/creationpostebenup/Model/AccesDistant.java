@@ -7,6 +7,8 @@ import com.example.hugosimon.creationpostebenup.Outils.AccesHTTP;
 import com.example.hugosimon.creationpostebenup.Outils.AsyncResponse;
 
 import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  *  @author Hugo SIMON
@@ -20,7 +22,7 @@ public class AccesDistant implements AsyncResponse {
      */
 
     //a changer par l'adresse du serv ebenup
-    private static final String SERVERADDR = "http://192.168.43.83/EbenUp/ServeurEbenUp.php";
+    private static final String SERVERADDR = "http://192.168.1.50/EbenUp/ServeurEbenUp.php";
 
     /**
      *  Instance du controleur pour pouvoir utiliser ses methodes
@@ -45,6 +47,17 @@ public class AccesDistant implements AsyncResponse {
              if (message[0].equals("publierPost")){
                 Log.d("publicReussie !", " PUBLICATION ********************");
             }
+            else{
+                 try{
+                     Log.d("jjjjjjjjjjjjjjjj", message[1]);
+                     JSONObject info = new JSONObject(message[1]);
+                     Integer uid = info.getInt("uidd");
+                     controle.setUser_id(uid);
+
+                 }catch (JSONException e){
+                     Log.d("iiiiiiiiiiiiiiiii", "processFinish: "+ e);
+                 }
+             }
         }
     }
 
@@ -57,7 +70,6 @@ public class AccesDistant implements AsyncResponse {
     public void envoi(String operation, JSONArray lesDonneesJSON){
 
         AccesHTTP accesDonnees = new AccesHTTP();
-
         accesDonnees.delegate = this;
         accesDonnees.addParam("operation", operation);
         accesDonnees.addParam("data",lesDonneesJSON.toString());
