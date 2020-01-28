@@ -1,5 +1,7 @@
 package com.example.hugosimon.creationpostebenup.Controllers;
 
+import android.util.Log;
+
 import com.example.hugosimon.creationpostebenup.Model.AccesDistant;
 
 import org.json.JSONArray;
@@ -116,6 +118,7 @@ public class Controller_enregistrementPost {
      */
 
     public JSONArray convertToJSONArray(int user_id, String[] textData){
+        Log.d("ttttttttttttttttttttt", user_id+"");
         List laListe = new ArrayList();
         laListe.add(user_id);
         for(int i = 0; i < textData.length; i++){

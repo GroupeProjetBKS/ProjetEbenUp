@@ -22,7 +22,7 @@ public class AccesDistant implements AsyncResponse {
      */
 
     //a changer par l'adresse du serv ebenup
-    private static final String SERVERADDR = "http://192.168.1.50/EbenUp/ServeurEbenUp.php";
+    private static final String SERVERADDR = "http://192.168.43.83/EbenUp/ServeurEbenUp.php";
 
     /**
      *  Instance du controleur pour pouvoir utiliser ses methodes
